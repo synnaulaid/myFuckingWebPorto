@@ -72,18 +72,24 @@
             <div id="activity-section">
                 <h2>Activity</h2>
                 <ul class="tree list-group">
-                    {% for e in events %}
+                    {% for e in activity %}
                         <li>
-                            <b>{{ e.type }}</b> — {{ e.repo.name if e.repo else '' }}
+                            <b>{{ e.type }}</b> — {{ e.repo }}
+                            <br>
                             <small class="text-muted">{{ e.created_at }}</small>
-                        
-                            {% if e.type == 'PushEvent' %}
+                            
+                            {% if e.type == 'PushEvent' and e.commits %}
                                 <ul>
-                                    {% for c in e.payload.commits %}
+                                    {% for c in e.commits %}
                                         <li>
-                                            <strong>{{ c.author.name }}</strong>: {{ c.message }}
+                                            <strong>{{ c.author }}</strong>: {{ c.message }}
                                             <br>
-                                            <small class="text-muted">Commit on {{ e.repo.name }}</small>
+                                            <small class="text-muted">
+                                                Commit on {{ e.repo }}
+                                                {% if c.url %}
+                                                    • <a href="{{ c.url | replace('api.', '') | replace('repos/', '') | replace('commits', 'commit') }}" target="_blank">view</a>
+                                                {% endif %}
+                                            </small>
                                         </li>
                                     {% endfor %}
                                 </ul>
