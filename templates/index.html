@@ -1,103 +1,131 @@
-<!DOCTYPE html>
-<html lang="en" class="bg-white text-black">
-<head>
-    <title>Syn Naulaid</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Styleheet-->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font icon -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-</head>
-<body class="font-serif">
-
-    <!-- Header -->
-    <header class="sticky top-0 bg-white z-40 text-center border-b border-black py-6">
-        <div class="absolute right-4 top-6 md:hidden">
-            <button id="menu-toggle" class="text-2xl">
-                <i class='bx bx-menu'></i>
-            </button>
-        </div>
-        <h1 class="text-4xl md:text-6xl font-bold font-[textura]">The Syn Naulaid Portofolio</h1>
-        <p class="uppercase text-sm mt-2 tracking-widest">Edisi Terbaru | Portofolio Sang Koder</p>
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex justify-center space-x-6 mt-4 text-sm font-medium">
-            <a href="#" class="hover:underline">Home</a>
-            <a href="#" class="hover:underline">Project</a>
-            <a href="#" class="hover:underline">Contact</a>
+{% extends "base.html" %}
+{% block content %}
+    <header>
+        <h1>My Fucking Portofolio Web 1.0</h1>
+        <button id="menu-toggle">&#9776;</button>
+        <nav class="navhead">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#project">Projects</a></li>
+                <li><a href="#pgp">PGP Signature</a></li>
+            </ul>
         </nav>
-
     </header>
-    <div id="mobile-menu" class="fixed top-0 right-0 h-full w-2/3 max-w-xs bg-white border-l border-black shadow-lg z-50 transform translate-x-full transition-transform duration-300 md:hidden">
-        <div class="p-4 border-b border-black flex justify-between items-center">
-            <h2 class="text-xl font-bold">Menu</h2>
-            <button id="menu-close" class="text-2xl"><i class='bx bx-x'></i></button>
-        </div>
-        <nav class="p-4 space-y-4">
-            <a href="#" class="block text-base hover:underline">Home</a>
-            <a href="#" class="block text-base hover:underline">Project</a>
-            <a href="#" class="block text-base hover:underline">Contact</a>
+    <aside id="sidebar">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#project">Projects</a></li>
+                <li><a href="#pgp">PGP Signature</a></li>
+            </ul>
+            <button id="close-btn">Close</button>
         </nav>
-    </div>  
+    </aside>
 
-    <!-- Content -->
-    <main>
-        <div class="flex flex-col md:flex-row justify-between gap-12 max-w-6xl mx-auto px-6 py-12">
-            <!-- SECTION 1: ABOUT ME -->
-            <section class="max-w-6xl mx-auto px-6 md:px-10 py-10 border-t border-black">
-                <h2 class="text-2xl font-bold mb-6 text-center uppercase font-[textura]">About Me</h2>
-            
-                    <div class="md:flex md:items-start md:gap-6">
-                        <!-- Teks -->
-                        <div class="md:w-2/3 text-sm leading-relaxed">
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.</p>
-                            <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
-                            </p>
-                        </div>
-                        <!-- Foto -->
-                        <div class="md:w-1/3 mt-6 md:mt-0 flex justify-center">
-                            <img src="{{ url_for('static', filename='images/hm.jpg') }}" 
-                                    alt="Foto About Me" 
-                                    class="w-64 h-auto object-cover border border-black shadow-md">
-                        </div>
-                        
-                    </div>
-                    <i class='bx bxs-envelope'></i><span> syn.naulaid@yandex.com</span>
-                    <i class='bx bxl-github'></i><span> synnaulaid</span>
-            </section>
-            <!-- SECTION 2: MY ACTIVITY -->
-            <section class="md:w-1/2">
-                    <h2 class="text-xl font-extrabold font-[textura] mb-4 border-b border-black inline-block">MY ACTIVITY</h2>
-                    <ul class="list-disc list-inside text-sm leading-relaxed">
-                        <li>Scroll Fesnuk</li>
-                        <li>Mangan</li>
-                        <li>Ngopi</li>
-                        <li>Turu</li>
-                        <li>Ngoding 3menit</li>
-                        <li>Berak</li>
-                        <li>repeat</li>
-                    </ul>
-            </section>
+    <main class="container" id="about">
+        <div class="about-me">
+            <h2>About Me</h2>
+            <p>
+                Hi! I’m that guy who doesn’t give a single shit about your fucking “next-gen” UI that  
+                looks like a cyberpunk festival but loads slower than dial-up in 1998.  
+                Oh yeah, I hear the usual bullshit excuse already:  
+                <em>“But bro, users love beautiful designs!”</em>  
+                Beautiful? You mean that bloated trash with 5 different JS frameworks,  
+                70 CORS errors, and a Lighthouse score so bad it should come with a funeral march?  
+                Fuck your overdesigned, performance-killing circus.  
+                I’m here for speed, clarity, and functionality not for making your browser cry like  
+                a weak laptop trying to load a 4K React SPA.  
+                Retro, minimal, and deadly fast.
+                If you are expecting web UI produced by <code style="background: rgba(128, 128, 128, 0.288);">npm run dev</code>  you should go back, you will not seen that. My web ran faster than your grandma, please welcome a site without horrible gigs ram consumes.
+            </p>
+            <p><i>__From fucking children sundanese nation.__</i></p>
         </div>
+        <div class="profile-photo">
+            <img src="/static/images/pp.png" alt="Profile Photo" />
+        </div>
+        
     </main>
+    <section class="project" id="project">
+        <div id="repos-section">
+            <h2>Repository</h2>
+            
+            <div class="repos-slider-wrapper">
+                <button class="slider-btn prev-btn">&laquo;</button>
+                <div class="repos-slider">
+                    {% for r in repos %}
+                    <div class="repo-card">
+                        <h3><a href="{{ url_for('repo_detail', name=r.name) }}">{{ r.name }}</a></h3>
+                        <p>{{ r.description or 'No description available.' }}</p>
+                        <small><i class='bx bx-star'></i> {{ r.stargazers_count }} · Updated {{ r.updated_at }}</small>
+                        <a href="{{ r.html_url }}" class="btn-view" target="_blank">View on GitHub</a>
+                    </div>
+                    {% endfor %}
+                </div>
+                <button class="slider-btn next-btn">&raquo;</button>
+            </div>
+        </div>
 
-    <!-- Footer -->
-    <footer class="text-center text-xs border-t border-black py-4">
-        <p>&copy; {{ current_year }} The Syn Naulaid Portofolio. Semua hak dilindungi bug <i class='bx bxs-bug'></i>.</p>
+
+        <div class="area-activity">
+            <div id="activity-section">
+                <h2>Activity</h2>
+                <ul class="tree list-group">
+                    {% for e in events %}
+                        <li>
+                            <b>{{ e.type }}</b> — {{ e.repo.name if e.repo else '' }}
+                            <small class="text-muted">{{ e.created_at }}</small>
+                        
+                            {% if e.type == 'PushEvent' %}
+                                <ul>
+                                    {% for c in e.payload.commits %}
+                                        <li>
+                                            <strong>{{ c.author.name }}</strong>: {{ c.message }}
+                                            <br>
+                                            <small class="text-muted">Commit on {{ e.repo.name }}</small>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signature -->
+    <section class="pgp-section" id="pgp">
+        <h2>PGP Signature</h2>
+        <div class="pgp-area">
+            <pre>
+    -----BEGIN PGP SIGNED MESSAGE-----
+    Hash: SHA512
+
+    Syn Naulaid - syn@warceuproject.org
+    -----BEGIN PGP SIGNATURE-----
+
+    iQIzBAEBCgAdFiEELDl+/r6fvfeHdI9jhfo3iWHxgYsFAmiC50oACgkQhfo3iWHx
+    gYuMpw//QmSicHHx+KyY3jPP3zuODnOqH7pRja/REwXER7lGZKS/8m7ZEQEgPpIy
+    du39wUEet+jRioyLsXrfVvfXh/Um2B8NZ76zhMP4h6dJSZ/ynKFEoU+KAXIn3kut
+    cqep949Rt6br4dPrbn/1MowIk3bYRz7NwHYprnLJEqKAq4kPMfGpOOmn16npIerE
+    13APwdImkg0IrNwHJ/luFhOxuote5At49hpw3BsUl64+NvH4VhLH9sZo/2Abv4r8
+    2S1p/+/OGWmaau8N47GtuaRkKNZ38o1p8Hfcdcoc9nFDxibWkUk8z56yrTmYyIhv
+    Nip9z/nFsTLpU6+qVLvUQ22mdV+7UqUlvoKxONOly9KjxJ0kUPjohr5QJhWz3oFX
+    XZ4xJYE7CECDsBPyF9iNqi2yhC0vcowqjQfa5qnB7KH0bEiirUYof5RiLQTNZNJA
+    ovDJZ/BXLOHFbT2JQ1ZbdViCOtI0p5bhXgPhs+ABdLBzzo2CbRwvmKnu1rAGQrUk
+    USREspfygsFtKuhNR19RxLPNn6w6CNWy8dlCl1daqp7ZqPFw9+f06e4uq5OIwRCO
+    R0Ye77b/ZyI/A31oAPVW0lBY40cZwVMO6w+mkqUeNqPB3rzI5nZHn9lm2Ntie0bp
+    7udBUGqVwK3FIOZ2R50tFvIIRdcY4Bu0RXdLRQTQatplIRAXHps=
+    =nm0u
+    -----END PGP SIGNATURE-----
+            </pre>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Warceu Project</p>
     </footer>
 
-    <!-- JSHT -->
-    <script>
-        const menu = document.getElementById("mobile-menu");
-        const openBtn = document.getElementById("menu-toggle");
-        const closeBtn = document.getElementById("menu-close");
-        openBtn.addEventListener("click", () => {
-            menu.classList.remove("translate-x-full");
-        });
-        closeBtn.addEventListener("click", () => {
-            menu.classList.add("translate-x-full");
-        });
-    </script>
-</body>
-</html>
+{% endblock %}

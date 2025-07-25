@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Old School Profile</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <header>
+    <h1>My Web 1.0 Profile</h1>
+    <button id="menu-toggle">&#9776;</button>
+  </header>
+
+  <aside id="sidebar">
+    <button id="close-btn">&times;</button>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Me</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="container">
+    <div class="about-me">
+      <h2>About Me</h2>
+      <p>Hi! Welcome to my personal old-school styled page. I'm a coder and cyber enthusiast who loves to keep it retro.</p>
+    </div>
+    <div class="profile-photo">
+      <img src="/static/images/hm.jpg" alt="Profile Photo" />
+    </div>
+  </main>
+  
+
+  <footer>
+    <p>&copy; 2025 Warceu Project</p>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const sidebar = document.getElementById("sidebar");
+    const closeBtn = document.getElementById("close-btn");
+
+    menuToggle.onclick = () => sidebar.classList.add("open");
+    closeBtn.onclick = () => sidebar.classList.remove("open");
+    const chatWindow = document.getElementById('chat-window');
+    
+  </script>
+</body>
+</html>

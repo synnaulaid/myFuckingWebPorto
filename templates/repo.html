@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container my-4 repo-page">
+        <a href="/" class="btn-back">&larr; Back to Portfolio</a>
+        <div class="repo-card shadow-sm">
+            <div class="repo-card-body">
+                <h2 class="repo-card-title">{{ repo.name }}</h2>
+                <p class="repo-description">
+                    {{ repo.description or 'No description available.' }}
+                </p>
+                <div class="repo-info">
+                    <p>
+                        <strong>Language:</strong> {{ repo.language }} <br>
+                        <strong>Stars:</strong> <i class='bxr bx-star'></i> {{ repo.stargazers_count }} <br>
+                        <strong>Forks:</strong> <i class='bxr bx-git-repo-forked'></i> {{ repo.forks_count }} <br>
+                        <strong>Last Update:</strong> {{ repo.updated_at }}
+                    </p>
+                </div>
+                <a href="{{ repo.html_url }}" class="btn-view" target="_blank">View on GitHub</a>
+            </div>
+        </div>
+
+        <div class="repo-commits mt-4">
+            <h4>Recent Commits</h4>
+            {% if commits %}
+                <ul class="repo-commit-list">
+                    {% for commit in commits %}
+                        <li class="repo-commit-item">
+                            <strong>{{ commit.commit.author.name }}</strong>: {{ commit.commit.message }}
+                            <br>
+                            <small class="text-muted">{{ commit.commit.author.date }}</small>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No recent commits available.</p>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

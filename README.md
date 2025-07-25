@@ -1,6 +1,8 @@
-# myPorto
-My Portofolio Site
+# myFuckingWebPorto
+myFuckingWebPorto 
 
 Initial Project Web Portofolio
 ## Upadte
-> Design Minimalis
+> Design Minimalis 
+
+> Integrated Github API
