@@ -20,10 +20,10 @@
             </div>
         </div>
 
-        <div class="repo-commits mt-4">
+        <div class=" mt-4 area-activity">
             <h4>Recent Commits</h4>
             {% if commits %}
-                <ul class="repo-commit-list">
+                <ul class="tree list-group">
                     {% for commit in commits %}
                         <li class="repo-commit-item">
                             <strong>{{ commit.commit.author.name }}</strong>: {{ commit.commit.message }}

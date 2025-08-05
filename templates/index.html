@@ -59,7 +59,7 @@
                         <h3><a href="{{ url_for('repo_detail', name=r.name) }}">{{ r.name }}</a></h3>
                         <p>{{ r.description or 'No description available.' }}</p>
                         <small><i class='bx bx-star'></i> {{ r.stargazers_count }} · Updated {{ r.updated_at }}</small>
-                        <a href="{{ r.html_url }}" class="btn-view" target="_blank">View on GitHub</a>
+                        <a href="{{ url_for('repo_detail', name=r.name) }}" class="btn-view" target="_blank">View Details</a>
                     </div>
                     {% endfor %}
                 </div>
